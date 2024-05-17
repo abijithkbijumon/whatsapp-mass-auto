@@ -17,10 +17,12 @@ with open('file.txt','r') as file:
 
 
 
-'''print("enter the number to whom you wish to send the message:")
+'''
+print("enter the number to whom you wish to send the message:")
 number = input()
 
 print("enter the message you wish to send:")
 msg = input()
 
-send_whatsapp_message(number,msg)'''
+send_whatsapp_message(number,msg)
+'''
