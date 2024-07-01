@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+{% load static tailwind_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous"></script>
+    {% tailwind_css %}
+    <!-- ____dev notes____ -->
+    <!-- the current app can only send to multiple accounts using an input -->
+    <!-- the input is a text file -->
+    <!-- in future development I'm thinking of an automation idea where you can extract the contacts from an excel sheet -->
+    <!-- and send this extracted data as  the input -->
+
+    <!-- Now we have it as a web app which will run locally -->
+    <!-- Later we will create a desktop app that does the job -->
+</head>
+<body class="bg-ddark-blue">
+   <div class="w-full h-full flex items-center justify-center min-h-screen">
+        <div class="w-6/12 h-96 bg-custom-green p-7 m-4 border border-blue-700 rounded-lg shadow-2xl text-awkward bg-opacity-85">
+            
+            
+            <div id="target-container" class="flex items-center justify-center">
+                <a id="button-target" hx-get="/next" hx-target="#target-container" class="absolute bottom-36 right-96 flex items-center">
+                    <img id="arrow-target" src="{% static 'images/right-arrow-angle.png' %}" alt="Icon" class="w-10 h-10 mr-2">
+                </a>
+                <a hx-get="/prev" hx-target="#target-container" class="absolute bottom-36 left-96 flex items-center">
+                    <img src="{% static 'images/left-arrow-angle.png' %}" alt="Icon" class="w-10 h-10 mr-2">
+                </a> 
+                <div id="info-target" class="grid grid-col-2 gap-4 mt-4">
+                    <div class="flex justify-center">
+                        <p id="paragraph-target">Hi there fellas, venti here!! I made an easy way to send messages<br> to your freinds out there!!!</p>
+                    </div>
+                    <div class="flex justify-center">
+                        <img class="w-36 h-36" src="{% static 'images/venti_pg_1.jpg' %}" alt="Image" id="image-target">
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static tailwind_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous"></script>
+    {% tailwind_css %}
+</head>
+<body>
+    <div class="fixed top-0 left-0 w-full h-full z-[-1]">
+        <video autoplay muted loop class="w-full h-full object-cover">
+            <source src="{% static 'images/venti_vid.mp4' %}" type="video/mp4">            
+        </video>
+    </div>
+    <div class="w-full h-full flex items-center justify-center min-h-screen">
+        <div id="form-target" class="w-6/12 h-96 bg-custom-green bg-opacity-75 p-7 m-4 border border-ddark-blue rounded-lg shadow-2xl text-awkward">
+            <form hx-post="{% url 'auto' %}" hx-target="#form-target" hx-swap="innerHTML" enctype="multipart/form-data">
+                <p>The message  has been sent!!!</p>
+                    <p>Wanna send anther one?</p>
+                    <div>
+                        <div class="w-full"></div>
+                        <div class="w-full h-72"></div>
+                        <div class="flex items-center justify-center">
+                            <button hx-target=#form-target hx-get="/Auto_page" type="submit" class="bg-blue-500 hover:bg-blue-700 text-white justify-center font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Go back</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
